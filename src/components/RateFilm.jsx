@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-
-import Reviews from "./Reviews";
 import { FaStar } from "react-icons/fa";
 
 const colors = { //star colors
@@ -45,29 +43,6 @@ const RateThisFilm = () => {
         
     }
 
-    //add review
-    const processForm = e => {
-        setCurrentValue('');
-        setComment('');
-
-        handleReviewChange({
-            id: createID(10),
-            currentValue,
-            comment,
-        })
-    }
-
-    const createID = length => {
-        let result = '';
-        let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdedfhijklmnopqrstuvwxyz0123456789';
-        let charactersLength = characters.length;
-
-        for (let i = 0; i < length; i++) {
-            result += characters.charAt(Math.floor(Math.random() * charactersLength));
-        }
-        return result;
-    }
-
     return (
         <div style={styles.container}>
             <form onSubmit={handleSubmit}>
@@ -100,10 +75,8 @@ const RateThisFilm = () => {
             style={styles.textarea}
           />
     
-          <button style={styles.button} type="submit" onClick={() => processForm()}>Submit</button>
+          <button style={styles.button} type="submit">Submit</button>
           </form>
-
-          <Reviews />
 
         </div>
       );
